@@ -9,11 +9,11 @@ module type Wut_def = sig
 end;;
 
 module Wut : Wut_def = struct
-  type t = int
-  let mk (i : int) : t  = i
-  let (+) x y = x+y
-  let ( * ) x y = x*y
-  let to_string x = string_of_int x
+  type t = {m:int;n:int}
+  let mk (i : int) : t  = {m=i;n=i}
+  let (+) x y = {m=x.m+y.m;n=x.n+y.n}
+  let ( * ) x y ={m=x.m*y.m;n=x.n*y.n} 
+  let to_string x = "(" ^ (string_of_int x.m) ^ ", " ^ (string_of_int x.n) ^ ")"
 end;;
 
 
